@@ -12,7 +12,19 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(glfw)
 # --- End of GLFW section ---
+add_library(glad lib/glad/src/glad.c)
+target_include_directories(glad PUBLIC lib/glad/include)
 
 add_executable(Gungnir src/main.cpp)
+
+
+add_custom_target(CopyResources ALL
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+        "${CMAKE_SOURCE_DIR}/resources"
+        "$<TARGET_FILE_DIR:Gungnir>/resources"
+        COMMENT "Copying resources to build directory"
+)
+add_dependencies(Gungnir CopyResources)
+
 # Link GLFW to your project
-target_link_libraries(Gungnir PRIVATE glfw)
+target_link_libraries(Gungnir PRIVATE glfw glad)
