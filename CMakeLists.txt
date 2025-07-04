@@ -15,7 +15,11 @@ FetchContent_MakeAvailable(glfw)
 add_library(glad lib/glad/src/glad.c)
 target_include_directories(glad PUBLIC lib/glad/include)
 
-add_executable(Gungnir src/main.cpp)
+add_executable(Gungnir src/main.cpp
+        src/Engine.cpp
+        src/Engine.h
+        src/Window.cpp
+        src/Window.h)
 
 
 add_custom_target(CopyResources ALL
