@@ -19,6 +19,8 @@ add_executable(Gungnir src/main.cpp
         src/Engine.cpp
         src/Engine.h
         src/Window.cpp
+        src/Shader.cpp
+        src/Shader.h
         src/Window.h)
 
 
