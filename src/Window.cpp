@@ -20,6 +20,10 @@ void Window::Create(const std::string &title, int width, int height) {
     if (!this->glfwWindow) {
         exit(EXIT_FAILURE);
     }
+    glfwMakeContextCurrent(this->glfwWindow);
+   // glfwSwapInterval(1);
+
+
 }
 
 void Window::Destroy() const {
@@ -27,6 +31,7 @@ void Window::Destroy() const {
 }
 
 void Window::PollEvents() {
+    glfwGetFramebufferSize(this->glfwWindow, &this->width, &this->height);
     glfwPollEvents();
 }
 

@@ -17,9 +17,10 @@ target_include_directories(glad PUBLIC lib/glad/include)
 
 add_executable(Gungnir src/main.cpp
         src/Engine.cpp
-        src/Engine.h
         src/Window.cpp
-        src/Window.h)
+        src/Shader.cpp
+        src/Renderer.cpp
+)
 
 
 add_custom_target(CopyResources ALL
